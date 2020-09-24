@@ -1,0 +1,86 @@
+/* definir altura total da pagina sem margem */
+
+html,
+body,
+#app {
+    height: 100%;
+    margin: 0 auto;
+}
+
+
+/* id sempre terá um peso maior que class */
+
+
+/* uma caixa que contenha os filhos para serem alinhados */
+
+#app {
+    display: flex;
+    flex-direction: row;
+    /* 
+    flex-direction: row;
+    direção inicial de um flex box 
+    alinhado a linha (todos os items a frente um do outro)  left - right
+    ------------------------------
+    flex-direction: row-reverse;    
+    alinhado a coluna (todos os items a abaixo um do outro) right - left
+    ------------------------------
+    flex-direction: column;  
+    alinhado a coluna (todos os items a abaixo um do outro) top - bottom
+    ------------------------------
+    flex-direction: column-reverse;     
+    alinhado a coluna (todos os items a abaixo um do outro) bottom - top
+  */
+    align-items: flex-start;
+    /* 
+    align-items: flex-start; {"flex-start", "center", "flex-end"}
+    flex-direction: row; ? alinhas os items verticalmente : alinhar os items horizontalmente
+  */
+    justify-content: flex-start;
+    /*
+    justify-content: flex-start; {"flex-start", "center", "flex-end", "space-between", "space-around"}
+    flex-direction: row; ? alinhas os items horizontalmente : alinhar os items verticalmente
+  */
+    flex-wrap: wrap;
+    /* quebra de linhas caso fique extensa a horizontal   */
+    align-content: flex-start;
+    /* 
+    alinha os componentes filhos quando tem mais de uma linha quebrada
+    {"flex-start", "center", "flex-end", "space-between", "space-around"}
+  */
+}
+
+
+/* caixas filha */
+
+.box {
+    width: 100px;
+    height: 60px;
+    margin: 5px;
+    flex: 1 0;
+    /* esse flex substitui o valor do grow e shrink, respectivamente */
+    /*
+      flex-grow: 1;
+      aceita que o componente filho seja aumentado para caber no componente pai 
+    */
+    /*
+      flex-shrink: 1; 
+      aceita que o componente filho seja esmagado para caber no componente pai 
+      se colocar shrink com valor 0 e o componente filho for muito grande ele vai criar um scroll 
+    */
+}
+
+.blue {
+    background: #069;
+    order: 0;
+    /* ordena a possição dos filhos no componente pai */
+}
+
+.green {
+    background: #0ff;
+    order: 2;
+}
+
+.red {
+    background: #f00;
+    order: 3;
+}
